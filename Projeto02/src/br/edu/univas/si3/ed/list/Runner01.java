@@ -38,6 +38,24 @@ public class Runner01 {
         System.out.println("Produto na posição 3: " + list.getElementAt(3)); //produto 4
         System.out.println("Produto na posição 7: " + list.getElementAt(7)); //null
 
+        list.remove("p2"); //caso 4
+        System.out.println("Produtos da lista após remover o p2: " + list.getAsString());
+
+        list.remove("pY"); //caso 5 - o produto não existe
+        System.out.println("Produtos da lista após remover o pY: " + list.getAsString());
+
+        list.remove("p1");//caso 2
+        System.out.println("Produtos da lista após remover o p1: " + list.getAsString());
+
+        list.remove("p4");//caso 3
+        System.out.println("Produtos da lista após remover o p4: " + list.getAsString());
+
+        list.remove("p3");//caso 6
+        System.out.println("Produtos da lista após remover o p3: " + list.getAsString());
+
+        list.remove("pX");//caso 1 - lista vazia
+        System.out.println("Produtos da lista após remover o pX: " + list.getAsString());
+
         System.out.println("Fim do teste da lista.");
     }
 }
