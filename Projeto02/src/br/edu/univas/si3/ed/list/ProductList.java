@@ -72,6 +72,41 @@ public class ProductList {
         return null;
     }
 
+    public Product remove(String name) {
+        if(head == null) { //caso 1
+            return null; //lista vazia
+        }
+
+        //passos:
+        //1)Procurar o nó a ser removido (e o anteior também)
+        ProductNode current = head;
+        ProductNode previous = null;
+        while(current != null) {
+            if(current.info.name.equals(name)) {
+                break; //interrompe o loop
+            }
+            previous = current;
+            current = current.next;//faz a travessia
+        }
+
+        if(current == null) { //não achou o produto
+            return null; //caso 5
+        }
+
+        //2)Guardar o produto do nó a ser removido
+        Product productRemoved = current.info;
+
+        //3)Fazer o nó anterior apontar para o nó posterior do "nó removido"
+        if(previous == null) {
+            head = current.next; //caso 2
+        } else {
+            previous.next = current.next; //caso 3 e 4
+        }
+
+        //free(nodeToRemove);//libera a memória do objeto (na linguagem C). O Java usa o Garbage Collector.
+        return productRemoved;
+    }
+
     //public ProductNode procurarUltimo() .....
     //salvaremos o último quando um nó for inserido
 
@@ -79,5 +114,12 @@ public class ProductList {
     //1 - imprimir a lista (as informações de todos os elementos da lista)
     //2 - buscar um produto utilizando o nome do produto (retornar o produto encontrado ou null)
     //3 - buscar um produto utilizando o índice (Nnésimo elemento) (similar a um vetor). Retorna null caso não existir.
-    //4 - (extra) excluir um produto da lista
+    //4 - excluir um produto da lista
+    //5 - TODO: corrigir o last na exclusão
+    //6 - TODO: Fazer o teste de mesa do método remover, usando 4 cenários
+    //  -- cenário 1: lista vazia
+    //  -- cenário 2: objeto procurado está na 1a posição
+    //  -- cenário 3: objeto procurado está na última posição
+    //  -- cenário 4: objeto procurado está numa posição intermediária
+    //  -- cenário 5: não achou o produto
 }
