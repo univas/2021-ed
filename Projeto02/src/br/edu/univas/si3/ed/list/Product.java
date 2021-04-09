@@ -1,6 +1,6 @@
 package br.edu.univas.si3.ed.list;
 
-public class Product {// nó (node)
+public class Product {
 
     // informações do nó
     public String name;

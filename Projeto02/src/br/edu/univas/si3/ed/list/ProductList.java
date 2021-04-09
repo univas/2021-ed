@@ -2,8 +2,8 @@ package br.edu.univas.si3.ed.list;
 
 public class ProductList {
 
-    public ProductNode head;
-    public ProductNode last;
+    private ProductNode head;
+    private ProductNode last;
 
     public void insert(Product prod) {
         //1 - alocar um node novo
