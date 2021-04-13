@@ -2,7 +2,7 @@ package br.edu.univas.si3.ed.data;
 
 import br.edu.univas.si3.ed.model.Product;
 
-public class Queue {
+public class Queue { //fila
     
     private ProductNode first = null;
     private ProductNode last = null;
@@ -10,9 +10,9 @@ public class Queue {
     public void insert(Product product) {
         ProductNode newNode = new ProductNode();
         newNode.info = product;
-        if(first == null) {
+        if(first == null) { //fila vazia
             first = newNode;
-        } else {
+        } else { //a lista não está vazia
             last.next = newNode;
         }
         last = newNode;
@@ -22,12 +22,11 @@ public class Queue {
         if(first == null) {
             return null;
         }
-        ProductNode newNode = first;
+        ProductNode node = first;
         first = first.next;
         if(first == null) {
             last = null;
         }
-
-        return newNode.info;
+        return node.info;
     }
 }

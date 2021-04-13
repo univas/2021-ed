@@ -2,16 +2,14 @@ package br.edu.univas.si3.ed.data;
 
 import br.edu.univas.si3.ed.model.Product;
 
-public class Stack {
+public class Stack { //pilha
     
     private ProductNode top = null;
 
     public void push(Product product) {
         ProductNode newNode = new ProductNode();
         newNode.info = product;
-        if(top != null) {
-            top.next = newNode;
-        }
+        newNode.next = top;
         top = newNode;
     }
 
@@ -19,9 +17,8 @@ public class Stack {
         if(top == null) {
             return null;
         }
-        ProductNode newNode = top;
+        ProductNode node = top;
         top = top.next;
-
-        return newNode.info;
+        return node.info;
     }
 }
