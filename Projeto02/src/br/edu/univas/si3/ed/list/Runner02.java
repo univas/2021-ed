@@ -30,15 +30,14 @@ public class Runner02 {
         //Navegação nos elementos da lista
         //usaremos uma classe para fazer a iteração (navegar de nó em nó)
 
-        ProductIterator iterador = new ProductIterator();
-        iterador.current = list.head;
+        ProductIterator iterador = list.getIterator();
 
         //TODO: Exercício: fazer o teste de mesa
         
-        while(iterador.hasProduct()) { //enquanto existir nó disponível
-            Product produtoAtual = iterador.getCurrent(); //obtém a informação do nó
-            System.out.println(produtoAtual);
-            iterador.goToNext(); //caminho para o próximo no
+        while(iterador.hasProduct()) { //enquanto existir produto disponível
+            Product produtoAtual = iterador.getCurrent(); //obtém a informação do produto
+            System.out.println(produtoAtual); //processa o produto
+            iterador.goToNext(); //caminho para o próximo nó
         }
     }
 }

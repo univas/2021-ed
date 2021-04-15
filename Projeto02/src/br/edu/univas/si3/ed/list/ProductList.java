@@ -2,8 +2,13 @@ package br.edu.univas.si3.ed.list;
 
 public class ProductList {
 
-    private ProductNode head;
-    private ProductNode last;
+    private ProductNode head; //controle interno da lista
+    private ProductNode last; //controle interno da lista
+
+    public ProductIterator getIterator() {//é joia
+        ProductIterator it = new ProductIterator(head);
+        return it;
+    }
 
     public void insert(Product prod) {
         //1 - alocar um node novo
