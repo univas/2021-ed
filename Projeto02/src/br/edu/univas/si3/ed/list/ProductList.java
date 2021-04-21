@@ -30,6 +30,9 @@ public class ProductList {
     }
 
     public String getAsString() {
+        if(head == null) {
+            return "The list is empty.";
+        }
         //o builder é um montador de Strings
         StringBuilder builder = new StringBuilder();
     
@@ -61,6 +64,14 @@ public class ProductList {
     }
 
     public Product getElementAt(int index) {
+        ProductNode node = getNodeAt(index);
+        if(node != null) {
+            return node.info;
+        }
+        return null;
+    }
+
+    private ProductNode getNodeAt(int index) {
         if(index < 0) {
             return null;
         }
@@ -69,7 +80,7 @@ public class ProductList {
         while(current != null) {
             //verifico a posição daquele nó
             if(index == count) {
-                return current.info;
+                return current;
             }
             count++; //incrementa a posição
             current = current.next; //navega para o próximo nó
@@ -137,4 +148,60 @@ public class ProductList {
     //  -- cenário 4: objeto procurado está numa posição intermediária
     //  -- cenário 5: não achou o produto
     //  -- cenário 6: a lista possui apenas um objeto, que será removido
+
+    //Exercícios da Lista
+
+    //1 - v1
+    public ProductList mergeWith(ProductList other) {
+        //junta a atual com o other
+
+        ProductList newList = new ProductList();
+        ProductNode node = this.head;
+        while(node != null) {
+            newList.insert(node.info); //inserindo elementos da lista atual
+            node = node.next;
+        }
+
+        node = other.head;
+        while(node != null) {
+            newList.insert(node.info); //inserindo elementos da lista other
+            node = node.next;
+        }
+        return newList;
+    }
+    
+    //2 - v1
+    public boolean swap(int pos1, int pos2) {
+
+        ProductNode node1 = this.getNodeAt(pos1);
+        ProductNode node2 = this.getNodeAt(pos2);
+
+        if(node1 == null || node2 == null) {
+            return false;
+        }
+        //troca os produtos
+        Product temp = node1.info;
+        node1.info = node2.info;
+        node2.info = temp;
+        return true;
+    }
+    
+    //3 - v1
+    public ProductList subList(int pos1, int pos2) {
+        ProductList newList = new ProductList();
+        ProductNode current = this.getNodeAt(pos1);
+        if(current == null) {
+            return newList;
+        }
+        int count = pos1;
+        while(count <= pos2) {
+            newList.insert(current.info);
+            count++;
+            current = current.next; //navega o current para o próximo elemento após o nó atual
+            if(current == null) {
+                break;
+            }
+        }
+        return newList;
+    }
 }
