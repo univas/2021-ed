@@ -6,6 +6,7 @@ public class Queue { //fila
     
     private ProductNode first = null;
     private ProductNode last = null;
+    private int size = 0;
 
     public void insert(Product product) {
         ProductNode newNode = new ProductNode();
@@ -16,6 +17,7 @@ public class Queue { //fila
             last.next = newNode;
         }
         last = newNode;
+        size++;
     }
 
     public Product remove() {
@@ -27,6 +29,23 @@ public class Queue { //fila
         if(first == null) {
             last = null;
         }
+        size--;
         return node.info;
+    }
+
+    public int length() {
+        int count = 0;
+
+        //contar os elementos
+        ProductNode current = first;
+        while(current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+
+    public int size() { //getSize
+        return size;
     }
 }
