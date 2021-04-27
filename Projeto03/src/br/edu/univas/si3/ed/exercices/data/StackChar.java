@@ -19,4 +19,23 @@ public class StackChar { //pilha de caracteres
         top = top.next;
         return node.info;
     }
+
+    public String getAsString() { //concatena de cima para baixo
+        StringBuffer buffer = new StringBuffer();
+        CharNode current = top;
+
+        while(current != null) {
+            buffer.append(current.info + ":");
+            current = current.next;
+        }
+        return buffer.toString();
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    public void clear() {
+        this.top = null;
+    }
 }
