@@ -13,8 +13,8 @@ public class Runner01 {
         
         No noB = arvore.criarSubArvore('b', null, noD);
         No noC = arvore.criarSubArvore('c', noE, noF);
-        No raiz = arvore.criarSubArvore('a', noB, noC);
+        arvore.criarRaiz('a', noB, noC);
         
-        arvore.imprimirPreOrdem(raiz);
+        arvore.imprimirPreOrdem();
     }
 }

@@ -2,6 +2,12 @@ package br.edu.univas.si3.ed.arvore.model;
 
 public class ArvoreBinariaV1 {
 
+	private No raiz;
+	
+	public void criarRaiz(Character caracter, No esq, No dir) {
+		raiz = criarSubArvore(caracter, esq, dir);
+	}
+	
 	public No criarNo(Character caracter) {
 		No no = new No();
 		no.info = caracter;
@@ -14,12 +20,16 @@ public class ArvoreBinariaV1 {
 		pai.dir = direita;
 		return pai;
 	}
+	
+	public void imprimirPreOrdem() {
+		imprimirPreOrdemInterno(raiz);
+	}
 
-	public void imprimirPreOrdem(No no) {
+	private void imprimirPreOrdemInterno(No no) {
 		if (no != null) {
 			System.out.print(no.info + "-");
-			imprimirPreOrdem(no.esq);
-			imprimirPreOrdem(no.dir);
+			imprimirPreOrdemInterno(no.esq);
+			imprimirPreOrdemInterno(no.dir);
 		}
 	}
 }
