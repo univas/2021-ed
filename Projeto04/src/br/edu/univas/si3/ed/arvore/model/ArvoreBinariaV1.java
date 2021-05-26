@@ -93,6 +93,7 @@ public class ArvoreBinariaV1 {
 		
 	//exercício 7
 	public Character buscarElemento(Character buscado) { //sem recurssividade
+
 		//Esta implementação é conhecida como "Busca em Largura".
 		//TODO: fazer o teste de mesa
 		
