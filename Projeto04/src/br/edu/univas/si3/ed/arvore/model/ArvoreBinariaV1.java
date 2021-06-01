@@ -5,20 +5,20 @@ import java.util.List;
 
 public class ArvoreBinariaV1 {
 
-	private No raiz;
+	private NoOfChar raiz;
 	
-	public void criarRaiz(Character caracter, No esq, No dir) {
+	public void criarRaiz(Character caracter, NoOfChar esq, NoOfChar dir) {
 		raiz = criarSubArvore(caracter, esq, dir);
 	}
 	
-	public No criarNo(Character caracter) {
-		No no = new No();
+	public NoOfChar criarNo(Character caracter) {
+		NoOfChar no = new NoOfChar();
 		no.info = caracter;
 		return no;
 	}
 
-	public No criarSubArvore(Character caracterRaiz, No esquerda, No direita) {
-		No pai = criarNo(caracterRaiz);
+	public NoOfChar criarSubArvore(Character caracterRaiz, NoOfChar esquerda, NoOfChar direita) {
+		NoOfChar pai = criarNo(caracterRaiz);
 		pai.esq = esquerda;
 		pai.dir = direita;
 		return pai;
@@ -28,7 +28,7 @@ public class ArvoreBinariaV1 {
 		imprimirPreOrdemInterno(raiz);
 	}
 
-	private void imprimirPreOrdemInterno(No no) { //processa antes de ir para a esquerda (recursivo)
+	private void imprimirPreOrdemInterno(NoOfChar no) { //processa antes de ir para a esquerda (recursivo)
 		if (no != null) {
 			System.out.print(no.info + "-"); //processa a raiz (da sub-árvore)
 			imprimirPreOrdemInterno(no.esq);
@@ -40,7 +40,7 @@ public class ArvoreBinariaV1 {
 		imprimirEmOrdemInterno(raiz);
 	}
 	
-	private void imprimirEmOrdemInterno(No no) { //processa depois que volta da esquerda
+	private void imprimirEmOrdemInterno(NoOfChar no) { //processa depois que volta da esquerda
 		if (no != null) {
 			imprimirEmOrdemInterno(no.esq);
 			System.out.print(no.info + "-"); //processa a raiz (da sub-árvore)
@@ -52,7 +52,7 @@ public class ArvoreBinariaV1 {
 		imprimirPosrdemInterno(raiz);
 	}
 	
-	private void imprimirPosrdemInterno(No no) { //processa depois que volta da direita
+	private void imprimirPosrdemInterno(NoOfChar no) { //processa depois que volta da direita
 		if (no != null) {
 			//System.out.println("Processando nó: " + no.info);
 			imprimirPosrdemInterno(no.esq);
@@ -66,7 +66,7 @@ public class ArvoreBinariaV1 {
 		return calcularQuantidadeNos(raiz);
 	}
 
-	private int calcularQuantidadeNos(No no) {
+	private int calcularQuantidadeNos(NoOfChar no) {
 		if(no == null) {
 			return 0;
 		}
@@ -82,7 +82,7 @@ public class ArvoreBinariaV1 {
 		return calcularMaiorNivel(raiz, 0);
 	}
 	
-	private int calcularMaiorNivel(No no, int nivel) {
+	private int calcularMaiorNivel(NoOfChar no, int nivel) {
 		if(no == null) {
 			return nivel - 1;
 		}
@@ -97,11 +97,11 @@ public class ArvoreBinariaV1 {
 		//Esta implementação é conhecida como "Busca em Largura".
 		//TODO: fazer o teste de mesa
 		
-		List<No> aguardando = new ArrayList<>();
+		List<NoOfChar> aguardando = new ArrayList<>();
 		aguardando.add(raiz);
 		
 		while(!aguardando.isEmpty()) {
-			No current = aguardando.remove(0); //pega o 1o elemento da lista
+			NoOfChar current = aguardando.remove(0); //pega o 1o elemento da lista
 			if(current.info.equals(buscado)) {
 				return current.info; //achou o objeto buscado
 			}

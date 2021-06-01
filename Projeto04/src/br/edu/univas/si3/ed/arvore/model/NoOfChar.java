@@ -1,8 +1,8 @@
 package br.edu.univas.si3.ed.arvore.model;
 
-public class No {
+public class NoOfChar {
     Character info;
 
-    No esq;
-    No dir;
+    NoOfChar esq;
+    NoOfChar dir;
 }

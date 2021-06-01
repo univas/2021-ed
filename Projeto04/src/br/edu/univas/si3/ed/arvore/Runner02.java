@@ -1,19 +1,19 @@
 package br.edu.univas.si3.ed.arvore;
 
 import br.edu.univas.si3.ed.arvore.model.ArvoreBinariaV1;
-import br.edu.univas.si3.ed.arvore.model.No;
+import br.edu.univas.si3.ed.arvore.model.NoOfChar;
 
 public class Runner02 {
 	public static void main(String[] args) {
 		ArvoreBinariaV1 arvore = new ArvoreBinariaV1();
 
-		No noD = arvore.criarNo('d');
-		No noE = arvore.criarNo('e');
-		No noG = arvore.criarNo('g'); // novo nó 'g' que será filho do nó 'f'
-		No noF = arvore.criarSubArvore('f', null, noG);
+		NoOfChar noD = arvore.criarNo('d');
+		NoOfChar noE = arvore.criarNo('e');
+		NoOfChar noG = arvore.criarNo('g'); // novo nó 'g' que será filho do nó 'f'
+		NoOfChar noF = arvore.criarSubArvore('f', null, noG);
 
-		No noB = arvore.criarSubArvore('b', null, noD);
-		No noC = arvore.criarSubArvore('c', noE, noF);
+		NoOfChar noB = arvore.criarSubArvore('b', null, noD);
+		NoOfChar noC = arvore.criarSubArvore('c', noE, noF);
 		arvore.criarRaiz('a', noB, noC);
 
 		int quantidadeNos = arvore.quantidadeNos();
