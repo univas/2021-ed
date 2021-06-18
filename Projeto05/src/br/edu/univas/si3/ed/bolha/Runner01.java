@@ -7,7 +7,7 @@ public class Runner01 {
 		
 		int vetor[] = new int[] { 25, 48, 37, 12, 25, 57, 86, 33, 92 };
 		
-		new OrdenacaoBolha().ordenarBolhaV1(vetor);
+		new OrdenacaoBolha<>().ordenarBolhaV1(vetor);
 		
 		//a linha acima corresponde às 2 linha comentadas abaixo
 		//OrdenacaoBolha ord = new OrdenacaoBolha();
