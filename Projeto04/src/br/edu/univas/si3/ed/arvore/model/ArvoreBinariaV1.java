@@ -1,7 +1,9 @@
 package br.edu.univas.si3.ed.arvore.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class ArvoreBinariaV1 {
 
@@ -102,6 +104,28 @@ public class ArvoreBinariaV1 {
 		
 		while(!aguardando.isEmpty()) {
 			NoOfChar current = aguardando.remove(0); //pega o 1o elemento da lista
+			if(current.info.equals(buscado)) {
+				return current.info; //achou o objeto buscado
+			}
+			if(current.esq != null) {
+				aguardando.add(current.esq);
+			}
+			if(current.dir != null) {
+				aguardando.add(current.dir);
+			}
+		}
+		return null; //não achou
+	}	
+
+	public Character buscarElementoProfundidade(Character buscado) { //sem recurssividade
+
+		//Esta implementação é conhecida como "Busca em Profundidade".
+		
+		Queue<NoOfChar> aguardando = new LinkedList<>();
+		aguardando.add(raiz);
+		
+		while(!aguardando.isEmpty()) {
+			NoOfChar current = aguardando.poll(); //pega o 1o elemento da pilha
 			if(current.info.equals(buscado)) {
 				return current.info; //achou o objeto buscado
 			}
